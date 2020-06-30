@@ -99,6 +99,7 @@ class Board(object):
         不对，我感觉还是原来那个方便。。这个还要考虑不存在的棋子，但另一种直接枚举的就是禁手位置
         注意判断活3的"活"
 
+        还有！需要判断如果当前黑棋只能下禁手棋那就算输了！
 
         square_state = np.zeros((4, self.width, self.height))
         if self.states:

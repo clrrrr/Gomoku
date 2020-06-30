@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d1ece5-736c-4daa-bd1d-2405a6e36974" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="17d1ece5-736c-4daa-bd1d-2405a6e36974" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +26,8 @@
       <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+            <state relative-caret-position="245">
+              <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
               <folding>
                 <element signature="e#55#92#0" expanded="true" />
               </folding>
@@ -144,7 +139,6 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="913" />
@@ -311,8 +305,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+        <state relative-caret-position="245">
+          <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
           <folding>
             <element signature="e#55#92#0" expanded="true" />
           </folding>
