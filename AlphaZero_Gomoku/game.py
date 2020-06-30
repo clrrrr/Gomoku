@@ -28,6 +28,7 @@ class Board(object):
         self.current_player = self.players[start_player]  # start player
         # keep available moves in a list
         self.availables = list(range(self.width * self.height))
+        self.forbidden = set()
         self.states = {}
         self.last_move = -1
 
@@ -63,6 +64,7 @@ class Board(object):
             moves, players = np.array(list(zip(*self.states.items())))
             move_curr = moves[players == self.current_player]
             move_oppo = moves[players != self.current_player]
+
             square_state[0][move_curr // self.width,
                             move_curr % self.height] = 1.0
             square_state[1][move_oppo // self.width,
@@ -74,6 +76,74 @@ class Board(object):
             square_state[3][:, :] = 1.0  # indicate the colour to play
         return square_state[:, ::-1, :]
 
+    def get_valid_moves(self):
+        把所有用到available的改成调用这个函数，然后这里判断下先后手，从available里去掉禁手即可
+        if len(self.states) % 2 == 0:  # black to go
+            return list(set(self.availables) - self.forbidden)
+
+    def update_forbidden(self):
+        """
+        recheck forbidden grids for the black after white's turn
+        i.e. current_player=black
+        my memo:
+        only checking new forbidden places caused by the latest move is wrong
+        since some of the old forbidden grids can no longer be forbidden after some white stones being placed
+        so for the sake of convenience, here in my implementation I simply recheck all the possible grids
+        :return: void
+        """
+
+        # 一种更简单的搜索方法：
+        # 遍历所有grid，将每个grid依次枚举为某个pattern的最上点(纵向)/最左点(横向)/xx(正对角线)/xx(反对角线)
+        # 这样每个pattern只会被count一次
+        # 当找到pattern，对组成pattern的所有点的计数器+1(3和4和6分开)
+        不对，我感觉还是原来那个方便。。这个还要考虑不存在的棋子，但另一种直接枚举的就是禁手位置
+        注意判断活3的"活"
+
+
+        square_state = np.zeros((4, self.width, self.height))
+        if self.states:
+            moves, players = np.array(list(zip(*self.states.items())))
+            move_black = moves[players == self.current_player]
+            move_white = moves[players != self.current_player]
+
+            square_state[0][move_black // self.width,
+                            move_black % self.height] = 1.0
+            square_state[1][move_white // self.width,
+                            move_white % self.height] = 1.0
+
+
+        self.forbidden = set()
+        for move in self.availables:
+            h, w = self.move_to_location(move)
+
+            # 6+ stones
+            n_six = 0
+            #blabla
+            if n_six > 0:
+                self.forbidden.add(move)
+                continue
+
+            # A win has higher priority than the following forbidden rules
+            n_five = 0
+            #blabla  see has_a_winner
+            if n_five > 0:
+                # do not forbid
+                continue
+
+            # 3-3's
+            n_three = 0  # number of 3's in 4 directions
+            #blabla
+            if n_three >= 2:
+                self.forbidden.add(move)
+                continue
+
+            # 4-4's
+            n_four = 0  # number of 4's in 4 directions
+            #blabla
+            if n_four >= 2:
+                self.forbidden.add(move)
+                continue
+
     def do_move(self, move):
         self.states[move] = self.current_player
         self.availables.remove(move)
@@ -83,6 +153,11 @@ class Board(object):
         )
         self.last_move = move
 
+        # update forbidden places
+        if len(self.states) % 2 == 0:  # update after white's turn!!
+            # recheck forbidden places
+            self.update_forbidden()
+
     def has_a_winner(self):
         width = self.width
         height = self.height
@@ -90,7 +165,7 @@ class Board(object):
         n = self.n_in_row
 
         moved = list(set(range(width * height)) - set(self.availables))
-        if len(moved) < self.n_in_row *2-1:
+        if len(moved) < self.n_in_row * 2 - 1:
             return False, -1
 
         for m in moved:
