@@ -63,7 +63,7 @@ class PolicyValueNet():
                  model_file=None, use_gpu=False):
 
         #########
-        use_gpu = False
+        use_gpu = True
         #########
 
         self.use_gpu = use_gpu
@@ -106,7 +106,8 @@ class PolicyValueNet():
         output: a list of (action, probability) tuples for each available
         action and the score of the board state
         """
-        legal_positions = board.availables
+        # legal_positions = board.availables
+        legal_positions = board.get_valid_moves()
         current_state = np.ascontiguousarray(board.current_state().reshape(
                 -1, 4, self.board_width, self.board_height))
         if self.use_gpu:

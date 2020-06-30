@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d1ece5-736c-4daa-bd1d-2405a6e36974" name="Default" comment="" />
+    <list default="true" id="17d1ece5-736c-4daa-bd1d-2405a6e36974" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/best_policy.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/current_policy.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_keras.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_keras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_numpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_numpy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlphaZero_Gomoku/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlphaZero_Gomoku/train.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +25,8 @@
       <file leaf-file-name="train.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
+            <state relative-caret-position="569">
+              <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
               <folding>
                 <element signature="e#123#160#0" expanded="true" />
               </folding>
@@ -26,8 +37,8 @@
       <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+            <state relative-caret-position="178">
+              <caret line="183" column="32" lean-forward="true" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
               <folding>
                 <element signature="e#55#92#0" expanded="true" />
               </folding>
@@ -35,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mcts_pure.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py">
+      <file leaf-file-name="policy_value_net.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="53" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="53" />
+            <state relative-caret-position="153">
+              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -47,8 +58,8 @@
       <file leaf-file-name="mcts_alphaZero.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="214">
+              <caret line="183" selection-start-line="183" selection-end-line="183" />
               <folding>
                 <element signature="e#190#208#0" expanded="true" />
               </folding>
@@ -59,22 +70,10 @@
       <file leaf-file-name="policy_value_net_pytorch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+            <state relative-caret-position="452">
+              <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
               <folding>
                 <element signature="e#141#153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="human_play.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/human_play.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-              <folding>
-                <element signature="e#110#147#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,10 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set_player_ind</find>
-      <find>start_play</find>
-      <find>reset_player</find>
-      <find>use</find>
       <find>.data[0]</find>
       <find>game_batch_num</find>
       <find>item</find>
@@ -95,7 +90,6 @@
       <find>collect_</find>
       <find>print</find>
       <find>batch_size</find>
-      <find>check_freq</find>
       <find>data_buffer</find>
       <find>mcts_probs_batch = [data[1] for data in mini_batch]</find>
       <find>invalid</find>
@@ -108,12 +102,17 @@
       <find>select</find>
       <find>expand</find>
       <find>init_model</find>
-      <find>available</find>
       <find>legal</find>
       <find>_policy</find>
       <find>self.availa</find>
       <find>board.avai</find>
       <find>current_state</find>
+      <find>use_gpu</find>
+      <find>available</find>
+      <find>policy_upda</find>
+      <find>evaluate</find>
+      <find>save</find>
+      <find>check_freq</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,9 +121,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py" />
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py" />
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_keras.py" />
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py" />
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_numpy.py" />
+        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" />
         <option value="$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py" />
         <option value="$PROJECT_DIR$/AlphaZero_Gomoku/train.py" />
-        <option value="$PROJECT_DIR$/AlphaZero_Gomoku/game.py" />
       </list>
     </option>
   </component>
@@ -138,8 +142,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="x" value="142" />
+    <option name="y" value="59" />
+    <option name="width" value="1738" />
     <option name="height" value="913" />
   </component>
   <component name="ProjectView">
@@ -147,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,6 +168,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +204,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="913" extended-state="0" />
+    <frame x="142" y="59" width="1738" height="913" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -209,9 +214,10 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24705188" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -222,7 +228,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +242,63 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
+          <folding>
+            <element signature="e#123#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding>
+            <element signature="e#55#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#190#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+          <folding>
+            <element signature="e#141#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/human_play.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+          <folding>
+            <element signature="e#110#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2482">
@@ -294,20 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/human_play.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -318,37 +366,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="53" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+        <state relative-caret-position="452">
+          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
           <folding>
             <element signature="e#141#153#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_pure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1449">
+          <caret line="208" column="48" selection-start-line="208" selection-start-column="48" selection-end-line="208" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_numpy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1277">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/mcts_alphaZero.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="214">
+          <caret line="183" selection-start-line="183" selection-end-line="183" />
           <folding>
             <element signature="e#190#208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/policy_value_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        <state relative-caret-position="178">
+          <caret line="183" column="32" lean-forward="true" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
           <folding>
             <element signature="e#55#92#0" expanded="true" />
           </folding>
@@ -357,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlphaZero_Gomoku/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
+        <state relative-caret-position="569">
+          <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
           <folding>
             <element signature="e#123#160#0" expanded="true" />
           </folding>

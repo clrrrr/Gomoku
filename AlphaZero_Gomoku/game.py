@@ -20,6 +20,14 @@ class Board(object):
         # need how many pieces in a row to win
         self.n_in_row = int(kwargs.get('n_in_row', 5))
         self.players = [1, 2]  # player1 and player2
+        self.current_player = None
+        self.availables = None
+        self.forbidden = None
+        self.last_move = None
+        # self.directions = [[-1, -1],[-1, 0], [-1, 1],
+        #                    [0, -1], [0, 1],
+        #                    [1, -1], [1, 0], [1, 1]]
+        self.directions = [[-1, 1],[0, 1],[1, 0],[1, 1]]
 
     def init_board(self, start_player=0):
         if self.width < self.n_in_row or self.height < self.n_in_row:
@@ -77,73 +85,169 @@ class Board(object):
         return square_state[:, ::-1, :]
 
     def get_valid_moves(self):
-        把所有用到available的改成调用这个函数，然后这里判断下先后手，从available里去掉禁手即可
         if len(self.states) % 2 == 0:  # black to go
             return list(set(self.availables) - self.forbidden)
+        else:
+            return self.availables
+
+    def count_pieces(self, square_state, start, direction, length):
+        """
+        :param square_state: 3-d array, slice 0:black, 1:white
+        :param start: [x, y]
+        :param direction: [dx, dy]
+        :param length: int
+        :return: [n_black, n_space] indicating number of black pieces/spaces
+        along a consecutive path from start position
+        do not judge if the visit of array is legal
+        """
+        n_black = 0
+        n_space = 0
+        for i in range(0, length):
+            cur_x = start[0] + i * direction[0]
+            cur_y = start[1] + i * direction[1]
+            if square_state[0][cur_x][cur_y]:
+                n_black += 1
+            else:
+                if not square_state[1][cur_x][cur_y]:
+                    n_space += 1
+        return [n_black, n_space]
+
+    def is_legal(self, position):
+        x, y = position
+        if x < 0 or y < 0:
+            return False
+        if x >= self.width or y >= self.height:
+            return False
+        return True
+
+    def count_six(self, potential, square_state):
+        # count number of directions which has consecutive grids with length >=6
+        n_six = 0
+        for direction in self.directions:
+            for i in range(-5, 1):
+                start_x = potential[0] + i * direction[0]
+                start_y = potential[1] + i * direction[1]
+                end_x = start_x + 5 * direction[0]
+                end_y = start_y + 5 * direction[1]
+                if self.is_legal((start_x, start_y)) and self.is_legal((end_x, end_y)):
+                    n_black, _ = self.count_pieces(square_state, (start_x, start_y), direction, 6)
+                    if n_black == 5:
+                        n_six += 1
+                        break
+        return n_six
+
+    def has_five(self, potential, square_state):
+        # positions to win
+        for direction in self.directions:
+            for i in range(-4, 1):
+                start_x = potential[0] + i * direction[0]
+                start_y = potential[1] + i * direction[1]
+                end_x = start_x + 4 * direction[0]
+                end_y = start_y + 4 * direction[1]
+                if self.is_legal((start_x, start_y)) and self.is_legal((end_x, end_y)):
+                    n_black, _ = self.count_pieces(square_state, (start_x, start_y), direction, 5)
+                    if n_black == 4:
+                        back_x = start_x - direction[0]
+                        back_y = start_y - direction[1]
+                        forward_x = end_x + direction[0]
+                        forward_y = end_y + direction[1]
+                        can_not_extend = True
+                        if self.is_legal((back_x, back_y)):
+                            if square_state[0][back_x][back_y]:
+                                can_not_extend = False
+                        if self.is_legal((forward_x, forward_y)):
+                            if square_state[0][forward_x][forward_y]:
+                                can_not_extend = False
+                        if can_not_extend:
+                            return True
+        return False
+
+    def count_three(self, potential, square_state):
+        # count number of free 3's(which leads to bidirectional free 4's with one step)
+        n_three = 0
+        for direction in self.directions:
+            for i in range(-4, 1):
+                back_x = potential[0] + i * direction[0]
+                back_y = potential[1] + i * direction[1]
+                forward_x = back_x + 5 * direction[0]
+                forward_y = back_y + 5 * direction[1]
+                if not (self.is_legal((back_x, back_y)) and self.is_legal((forward_x, forward_y))):
+                    continue
+                if square_state[0][back_x][back_y] or square_state[1][back_x][back_y]:
+                    continue
+                if square_state[0][forward_x][forward_y] or square_state[1][forward_x][forward_y]:
+                    continue
+                start_x = back_x + direction[0]
+                start_y = back_y + direction[1]
+                n_black, n_space = self.count_pieces(square_state, (start_x, start_y), direction, 4)
+                if n_black == 2 and n_space == 2:
+                    n_three += 1
+                    break
+        return n_three
+
+    def count_four(self, potential, square_state):
+        # count number of 4's
+        n_four = 0
+        for direction in self.directions:
+            for i in range(-4, 1):
+                start_x = potential[0] + i * direction[0]
+                start_y = potential[1] + i * direction[1]
+                end_x = start_x + 4 * direction[0]
+                end_y = start_y + 4 * direction[1]
+                if self.is_legal((start_x, start_y)) and self.is_legal((end_x, end_y)):
+                    n_black, n_space = self.count_pieces(square_state, (start_x, start_y), direction, 5)
+                    if n_black == 3 and n_space == 2:
+                        n_four += 1
+                        break
+        return n_four
 
     def update_forbidden(self):
         """
         recheck forbidden grids for the black after white's turn
         i.e. current_player=black
+
         my memo:
         only checking new forbidden places caused by the latest move is wrong
         since some of the old forbidden grids can no longer be forbidden after some white stones being placed
-        so for the sake of convenience, here in my implementation I simply recheck all the possible grids
+        so for the sake of convenience, here in my implementation I simply recheck all grids
         :return: void
         """
 
-        # 一种更简单的搜索方法：
-        # 遍历所有grid，将每个grid依次枚举为某个pattern的最上点(纵向)/最左点(横向)/xx(正对角线)/xx(反对角线)
-        # 这样每个pattern只会被count一次
-        # 当找到pattern，对组成pattern的所有点的计数器+1(3和4和6分开)
-        不对，我感觉还是原来那个方便。。这个还要考虑不存在的棋子，但另一种直接枚举的就是禁手位置
-        注意判断活3的"活"
-
-        还有！需要判断如果当前黑棋只能下禁手棋那就算输了！
-
-        square_state = np.zeros((4, self.width, self.height))
+        square_state = np.zeros((2, self.width, self.height))
         if self.states:
             moves, players = np.array(list(zip(*self.states.items())))
             move_black = moves[players == self.current_player]
             move_white = moves[players != self.current_player]
 
+            # 0: black state
+            # 1: white state
             square_state[0][move_black // self.width,
                             move_black % self.height] = 1.0
             square_state[1][move_white // self.width,
                             move_white % self.height] = 1.0
 
-
         self.forbidden = set()
         for move in self.availables:
-            h, w = self.move_to_location(move)
+            # the potential(to be forbidden) grid is a space grid
+            potential = self.move_to_location(move)
 
-            # 6+ stones
-            n_six = 0
-            #blabla
-            if n_six > 0:
+            # long consecutive sequence
+            if self.count_six(potential, square_state) > 0:
                 self.forbidden.add(move)
                 continue
 
             # A win has higher priority than the following forbidden rules
-            n_five = 0
-            #blabla  see has_a_winner
-            if n_five > 0:
-                # do not forbid
+            if self.has_five(potential, square_state):
                 continue
 
             # 3-3's
-            n_three = 0  # number of 3's in 4 directions
-            #blabla
-            if n_three >= 2:
+            if self.count_three(potential, square_state) >= 2:
                 self.forbidden.add(move)
                 continue
 
             # 4-4's
-            n_four = 0  # number of 4's in 4 directions
-            #blabla
-            if n_four >= 2:
+            if self.count_four(potential, square_state) >= 2:
                 self.forbidden.add(move)
-                continue
 
     def do_move(self, move):
         self.states[move] = self.current_player
@@ -154,8 +258,10 @@ class Board(object):
         )
         self.last_move = move
 
+        # print(move)
+
         # update forbidden places
-        if len(self.states) % 2 == 0:  # update after white's turn!!
+        if len(self.states) % 2 == 0:  # update after white's operation!!
             # recheck forbidden places
             self.update_forbidden()
 
@@ -168,6 +274,9 @@ class Board(object):
         moved = list(set(range(width * height)) - set(self.availables))
         if len(moved) < self.n_in_row * 2 - 1:
             return False, -1
+
+        if len(self.get_valid_moves()) == 0 and len(self.availables) > 0:
+            return True, states[moved[-1]]
 
         for m in moved:
             h = m // width
